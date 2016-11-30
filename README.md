@@ -62,9 +62,9 @@ def __init__(self, extractor='DefaultExtractor', **kwargs):
         self.extractor.process(self.source)
 ```
 
-## pdfMiner bug
+## pdfMiner
 
-/usr/local/lib/python2.7/dist-packages/pdfminer/utils.py
+更改/usr/local/lib/python2.7/dist-packages/pdfminer/utils.py
 
 bug函数:
 
