@@ -62,4 +62,30 @@ def __init__(self, extractor='DefaultExtractor', **kwargs):
         self.extractor.process(self.source)
 ```
 
+## pdfMiner bug
+
+/usr/local/lib/python2.7/dist-packages/pdfminer/utils.py
+
+bug函数:
+
+```
+def enc(x, codec='ascii'):
+    """Encodes a string for SGML/XML/HTML"""
+    x = x.replace('&', '&amp;').replace('>', '&gt;').replace('<', '&lt;').replace('"', '&quot;')
+    return x.encode(codec, 'xmlcharrefreplace')
+
+```
+
+修正：
+
+```
+def enc(x, codec='ascii'):
+    """Encodes a string for SGML/XML/HTML"""
+    x = x.replace('&', '&amp;').replace('>', '&gt;').replace('<', '&lt;').replace('"', '&quot;')
+    try:
+        return x.encode(codec, 'xmlcharrefreplace')
+    except UnicodeDecodeError as e:
+        return ''
+```
+
 
