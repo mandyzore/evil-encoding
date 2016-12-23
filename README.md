@@ -88,4 +88,16 @@ def enc(x, codec='ascii'):
         return ''
 ```
 
+## Mac terminal
 
+local: ~/.bashrc
+
+remote: ~/.bashrc
+
+把下面两行加入上面的配置：
+
+
+```
+export LC_ALL=en_US.UTF-8 
+export LANG=en_US.UTF-8
+````
